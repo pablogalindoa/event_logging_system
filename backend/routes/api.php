@@ -6,3 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/events', [EventController::class, 'store'])
     ->middleware(ValidateEventJson::class);
+
+Route::get('/events', [EventController::class, 'index']);

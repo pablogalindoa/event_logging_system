@@ -14,7 +14,9 @@ class Event extends Model
 
     public const UPDATED_AT = null;
 
-    protected $dateFormat = 'Y-m-d H:i:s.v';
+    public const DATE_FORMAT = 'Y-m-d H:i:s.vP';
+
+    protected $dateFormat = self::DATE_FORMAT;
 
     protected $fillable = [
         'level',
