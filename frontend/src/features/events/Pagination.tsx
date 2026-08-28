@@ -13,7 +13,7 @@ export function Pagination({ meta, links, onPageChange, onPerPageChange }: Props
       <p className="text-slate-600" aria-live="polite">
         {meta.total === 0 ? 'No events' : `Showing ${meta.from}–${meta.to} of ${meta.total}`}
       </p>
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex min-w-0 max-w-full flex-wrap items-center gap-2">
         <label className="mr-2 flex items-center gap-2 text-slate-600">
           Per page
           <select

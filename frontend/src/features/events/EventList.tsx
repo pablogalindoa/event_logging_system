@@ -17,13 +17,13 @@ function displayTimestamp(timestamp: string) {
 
 export function EventList({ events }: { events: Event[] }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <div className="min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       <div className="hidden grid-cols-[8rem_minmax(0,1fr)_12rem_13rem] gap-4 border-b border-slate-200 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 md:grid">
         <span>Level</span><span>Message</span><span>Source</span><span>Occurred</span>
       </div>
       <ul className="divide-y divide-slate-200" aria-label="Events">
         {events.map((event) => (
-          <li key={event.id} className="grid gap-3 px-4 py-4 md:grid-cols-[8rem_minmax(0,1fr)_12rem_13rem] md:items-center md:gap-4 md:px-5">
+          <li key={event.id} className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-3 px-4 py-4 md:grid-cols-[8rem_minmax(0,1fr)_12rem_13rem] md:items-center md:gap-4 md:px-5">
             <div>
               <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${levelStyles[event.level]}`}>
                 {event.level}
@@ -34,7 +34,7 @@ export function EventList({ events }: { events: Event[] }) {
               <span className="mr-2 font-medium text-slate-500 md:hidden">Source</span>
               {event.source ?? '—'}
             </p>
-            <time className="text-sm text-slate-600" dateTime={event.occurred_at}>
+            <time className="min-w-0 break-words text-sm text-slate-600" dateTime={event.occurred_at}>
               <span className="mr-2 font-medium text-slate-500 md:hidden">Occurred</span>
               {displayTimestamp(event.occurred_at)}
             </time>
